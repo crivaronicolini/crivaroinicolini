@@ -2474,16 +2474,16 @@ var user_hooks = /* @__PURE__ */ Object.freeze({
 });
 var template = ({head, body}) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="/favicon.ico" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n	</head>\n	<body>\n		<div id="svelte">' + body + "</div>\n	</body>\n</html>\n";
 var options = null;
-function init(settings) {
-  set_paths(settings.paths);
-  set_prerendering(settings.prerendering || false);
+function init(settings2) {
+  set_paths(settings2.paths);
+  set_prerendering(settings2.prerendering || false);
   options = {
     amp: false,
     dev: false,
     entry: {
-      file: "/./_app/start-6c2a70f1.js",
+      file: "/./_app/start-17db85e9.js",
       css: ["/./_app/assets/start-a8cd1609.css"],
-      js: ["/./_app/start-6c2a70f1.js", "/./_app/chunks/vendor-60ec356f.js"]
+      js: ["/./_app/start-17db85e9.js", "/./_app/chunks/vendor-60ec356f.js"]
     },
     fetched: void 0,
     floc: false,
@@ -2498,8 +2498,8 @@ function init(settings) {
     initiator: void 0,
     load_component,
     manifest,
-    paths: settings.paths,
-    read: settings.read,
+    paths: settings2.paths,
+    read: settings2.read,
     root: Root,
     router: true,
     ssr: true,
@@ -2510,7 +2510,7 @@ function init(settings) {
 }
 var empty = () => ({});
 var manifest = {
-  assets: [],
+  assets: [{"file": "favicon.ico", "size": 0, "type": "image/vnd.microsoft.icon"}],
   layout: "src/routes/__layout.svelte",
   error: ".svelte-kit/build/components/error.svelte",
   routes: [
@@ -2519,6 +2519,13 @@ var manifest = {
       pattern: /^\/$/,
       params: empty,
       a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+      b: [".svelte-kit/build/components/error.svelte"]
+    },
+    {
+      type: "page",
+      pattern: /^\/settings\/?$/,
+      params: empty,
+      a: ["src/routes/__layout.svelte", "src/routes/settings.svelte"],
       b: [".svelte-kit/build/components/error.svelte"]
     },
     {
@@ -2544,11 +2551,14 @@ var module_lookup = {
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
     return index;
   }),
+  "src/routes/settings.svelte": () => Promise.resolve().then(function() {
+    return settings;
+  }),
   "src/routes/about.svelte": () => Promise.resolve().then(function() {
     return about;
   })
 };
-var metadata_lookup = {"src/routes/__layout.svelte": {"entry": "/./_app/pages/__layout.svelte-5669ad84.js", "css": ["/./_app/assets/pages/__layout.svelte-c2e59f96.css"], "js": ["/./_app/pages/__layout.svelte-5669ad84.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, ".svelte-kit/build/components/error.svelte": {"entry": "/./_app/error.svelte-974d9b39.js", "css": [], "js": ["/./_app/error.svelte-974d9b39.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, "src/routes/index.svelte": {"entry": "/./_app/pages/index.svelte-40dd1b9a.js", "css": ["/./_app/assets/pages/index.svelte-83d63226.css"], "js": ["/./_app/pages/index.svelte-40dd1b9a.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, "src/routes/about.svelte": {"entry": "/./_app/pages/about.svelte-6992bb25.js", "css": [], "js": ["/./_app/pages/about.svelte-6992bb25.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}};
+var metadata_lookup = {"src/routes/__layout.svelte": {"entry": "/./_app/pages/__layout.svelte-5669ad84.js", "css": ["/./_app/assets/pages/__layout.svelte-c2e59f96.css"], "js": ["/./_app/pages/__layout.svelte-5669ad84.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, ".svelte-kit/build/components/error.svelte": {"entry": "/./_app/error.svelte-974d9b39.js", "css": [], "js": ["/./_app/error.svelte-974d9b39.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, "src/routes/index.svelte": {"entry": "/./_app/pages/index.svelte-40dd1b9a.js", "css": ["/./_app/assets/pages/index.svelte-83d63226.css"], "js": ["/./_app/pages/index.svelte-40dd1b9a.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, "src/routes/settings.svelte": {"entry": "/./_app/pages/settings.svelte-5bfba871.js", "css": [], "js": ["/./_app/pages/settings.svelte-5bfba871.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}, "src/routes/about.svelte": {"entry": "/./_app/pages/about.svelte-6992bb25.js", "css": [], "js": ["/./_app/pages/about.svelte-6992bb25.js", "/./_app/chunks/vendor-60ec356f.js"], "styles": null}};
 async function load_component(file) {
   return {
     module: await module_lookup[file](),
@@ -2632,6 +2642,16 @@ var index = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": Routes
+});
+var prerender$1 = true;
+var Settings = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<h1>ola</h1>`;
+});
+var settings = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": Settings,
+  prerender: prerender$1
 });
 var prerender = true;
 var About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
